@@ -1,0 +1,9 @@
+site_name: Patient Platform
+nav:
+    - Home: index.md
+    - Authentication: authentication/index.md
+    - Query: 
+        - 'Introduction' : 'query/index.md'
+        - 'Querying' : 'query/querying.md'
+        - 'Schema' : 'query/schema.md'
+theme: readthedocs
