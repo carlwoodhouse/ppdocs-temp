@@ -1,6 +1,6 @@
-pr## GraphQL Schema
+#Schema
 
-The PPQ schema is modelled after schema.net; all available types and queries are listed here.
+This is the schema that forms the graphql graph and model of the api, it is based on schema.org.
 
 # Schema Types
 
@@ -23,11 +23,8 @@ The PPQ schema is modelled after schema.net; all available types and queries are
     * [HowTo](#howto)
     * [Hub](#hub)
     * [HubVideo](#hubvideo)
-    * [MarkdownField](#markdownfield)
-    * [Markup](#markup)
     * [Mass](#mass)
     * [MaximumDose](#maximumdose)
-    * [MediaField](#mediafield)
     * [MedicalArticle](#medicalarticle)
     * [MedicalCode](#medicalcode)
     * [MedicalCondition](#medicalcondition)
@@ -55,6 +52,7 @@ The PPQ schema is modelled after schema.net; all available types and queries are
     * [RecipeQuery](#recipequery)
     * [SearchPromotion](#searchpromotion)
     * [SearchResult](#searchresult)
+    * [SectionPartQuery](#sectionpartquery)
     * [ServiceQuery](#servicequery)
     * [Substance](#substance)
     * [TherapeuticProcedure](#therapeuticprocedure)
@@ -85,6 +83,7 @@ The PPQ schema is modelled after schema.net; all available types and queries are
     * [WebpagePartInput](#webpagepartinput)
   * [Enums](#enums)
     * [DosageForm](#dosageform)
+    * [MarkupFormat](#markupformat)
     * [OrderByDirection](#orderbydirection)
     * [PrescriptionStatus](#prescriptionstatus)
     * [RecipeDifficulty](#recipedifficulty)
@@ -104,6 +103,8 @@ The PPQ schema is modelled after schema.net; all available types and queries are
     * [Seconds](#seconds)
     * [String](#string)
     * [Uri](#uri)
+  * [Interfaces](#interfaces)
+    * [ContentItem](#contentitem)
 
 </details>
 
@@ -931,10 +932,10 @@ An organization that supports a thing through a pledge, promise, or financial co
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong>text</strong></td>
-<td valign="top"><a href="#markup">Markup</a></td>
+<td valign="top"><a href="#string">String</a></td>
 <td>
 
-The markup of the Creative Work and its flavour.
+The textual content of this CreativeWork.
 
 </td>
 </tr>
@@ -953,6 +954,15 @@ the base url to use when resolving urls
 <td>
 
 the url kind to use when resolving urls
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">format</td>
+<td valign="top"><a href="#markupformat">MarkupFormat</a></td>
+<td>
+
+the format of the markup used
 
 </td>
 </tr>
@@ -1272,10 +1282,10 @@ An organization that supports a thing through a pledge, promise, or financial co
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong>text</strong></td>
-<td valign="top"><a href="#markup">Markup</a></td>
+<td valign="top"><a href="#string">String</a></td>
 <td>
 
-The markup of the Creative Work and its flavour.
+The textual content of this CreativeWork.
 
 </td>
 </tr>
@@ -1294,6 +1304,15 @@ the base url to use when resolving urls
 <td>
 
 the url kind to use when resolving urls
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">format</td>
+<td valign="top"><a href="#markupformat">MarkupFormat</a></td>
+<td>
+
+the format of the markup used
 
 </td>
 </tr>
@@ -2004,10 +2023,10 @@ An organization that supports a thing through a pledge, promise, or financial co
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong>text</strong></td>
-<td valign="top"><a href="#markup">Markup</a></td>
+<td valign="top"><a href="#string">String</a></td>
 <td>
 
-The markup of the Creative Work and its flavour.
+The textual content of this CreativeWork.
 
 </td>
 </tr>
@@ -2026,6 +2045,15 @@ the base url to use when resolving urls
 <td>
 
 the url kind to use when resolving urls
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">format</td>
+<td valign="top"><a href="#markupformat">MarkupFormat</a></td>
+<td>
+
+the format of the markup used
 
 </td>
 </tr>
@@ -2997,10 +3025,10 @@ A sub-property of instrument. A supply consumed when performing instructions or 
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong>text</strong></td>
-<td valign="top"><a href="#markup">Markup</a></td>
+<td valign="top"><a href="#string">String</a></td>
 <td>
 
-The markup of the Creative Work and its flavour.
+The textual content of this CreativeWork.
 
 </td>
 </tr>
@@ -3019,6 +3047,15 @@ the base url to use when resolving urls
 <td>
 
 the url kind to use when resolving urls
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">format</td>
+<td valign="top"><a href="#markupformat">MarkupFormat</a></td>
+<td>
+
+the format of the markup used
 
 </td>
 </tr>
@@ -3093,28 +3130,6 @@ A Video describe the recording, reproducing, or broadcasting of moving visual im
 The quantity that results by performing instructions. For example, a paper airplane, 10 personalized candles.
 
 </td>
-</tr>
-</tbody>
-</table>
-
-### HtmlBodyPart
-
-Content stored as HTML.
-
-<table>
-<thead>
-<tr>
-<th align="left">Field</th>
-<th align="right">Argument</th>
-<th align="left">Type</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td colspan="2" valign="top"><strong>html</strong></td>
-<td valign="top"><a href="#string">String</a>!</td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -3432,10 +3447,10 @@ An organization that supports a thing through a pledge, promise, or financial co
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong>text</strong></td>
-<td valign="top"><a href="#markup">Markup</a></td>
+<td valign="top"><a href="#string">String</a></td>
 <td>
 
-The markup of the Creative Work and its flavour.
+The textual content of this CreativeWork.
 
 </td>
 </tr>
@@ -3454,6 +3469,15 @@ the base url to use when resolving urls
 <td>
 
 the url kind to use when resolving urls
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">format</td>
+<td valign="top"><a href="#markupformat">MarkupFormat</a></td>
+<td>
+
+the format of the markup used
 
 </td>
 </tr>
@@ -3782,10 +3806,10 @@ An organization that supports a thing through a pledge, promise, or financial co
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong>text</strong></td>
-<td valign="top"><a href="#markup">Markup</a></td>
+<td valign="top"><a href="#string">String</a></td>
 <td>
 
-The markup of the Creative Work and its flavour.
+The textual content of this CreativeWork.
 
 </td>
 </tr>
@@ -3804,6 +3828,15 @@ the base url to use when resolving urls
 <td>
 
 the url kind to use when resolving urls
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">format</td>
+<td valign="top"><a href="#markupformat">MarkupFormat</a></td>
+<td>
+
+the format of the markup used
 
 </td>
 </tr>
@@ -3867,206 +3900,6 @@ The version of the CreativeWork embodied by a specified resource.
 <td>
 
 A Video describe the recording, reproducing, or broadcasting of moving visual images.
-
-</td>
-</tr>
-</tbody>
-</table>
-
-### LinkField
-
-<table>
-<thead>
-<tr>
-<th align="left">Field</th>
-<th align="right">Argument</th>
-<th align="left">Type</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td colspan="2" valign="top"><strong>text</strong></td>
-<td valign="top"><a href="#string">String</a></td>
-<td>
-
-the text of the link
-
-</td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong>url</strong></td>
-<td valign="top"><a href="#string">String</a></td>
-<td>
-
-the url of the link
-
-</td>
-</tr>
-</tbody>
-</table>
-
-### ListPart
-
-Represents a collection of content items.
-
-<table>
-<thead>
-<tr>
-<th align="left">Field</th>
-<th align="right">Argument</th>
-<th align="left">Type</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td colspan="2" valign="top"><strong>contentItems</strong></td>
-<td valign="top">[<a href="#contentitem">ContentItem</a>]</td>
-<td>
-
-the content items
-
-</td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">first</td>
-<td valign="top"><a href="#int">Int</a></td>
-<td>
-
-the first n elements (10 by default)
-
-</td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">skip</td>
-<td valign="top"><a href="#int">Int</a></td>
-<td>
-
-the number of elements to skip
-
-</td>
-</tr>
-</tbody>
-</table>
-
-### MarkdownBodyPart
-
-Content stored as Markdown. You can also query the HTML interpreted version of Markdown.
-
-<table>
-<thead>
-<tr>
-<th align="left">Field</th>
-<th align="right">Argument</th>
-<th align="left">Type</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td colspan="2" valign="top"><strong>html</strong></td>
-<td valign="top"><a href="#string">String</a></td>
-<td>
-
-the HTML representation of the markdown content
-
-</td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong>markdown</strong></td>
-<td valign="top"><a href="#string">String</a></td>
-<td>
-
-the markdown value
-
-</td>
-</tr>
-</tbody>
-</table>
-
-### MarkdownField
-
-Content stored as Markdown. You can also query the HTML interpreted version of Markdown.
-
-<table>
-<thead>
-<tr>
-<th align="left">Field</th>
-<th align="right">Argument</th>
-<th align="left">Type</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td colspan="2" valign="top"><strong>html</strong></td>
-<td valign="top"><a href="#string">String</a></td>
-<td>
-
-the HTML representation of the markdown content
-
-</td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong>markdown</strong></td>
-<td valign="top"><a href="#string">String</a></td>
-<td>
-
-the markdown value
-
-</td>
-</tr>
-</tbody>
-</table>
-
-### Markup
-
-The markup of the Creative Work and its flavour
-
-<table>
-<thead>
-<tr>
-<th align="left">Field</th>
-<th align="right">Argument</th>
-<th align="left">Type</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td colspan="2" valign="top"><strong>html</strong></td>
-<td valign="top"><a href="#string">String</a></td>
-<td>
-
-The markup converted to HTML.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong>markdown</strong></td>
-<td valign="top"><a href="#string">String</a></td>
-<td>
-
-The markup converted to markdown.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong>raw</strong></td>
-<td valign="top"><a href="#string">String</a>!</td>
-<td>
-
-The markup unconverted.
-
-</td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong>rawFlavor</strong></td>
-<td valign="top"><a href="#string">String</a>!</td>
-<td>
-
-The flavour of the markup e.g. HTML, markdown etc.
 
 </td>
 </tr>
@@ -4263,93 +4096,6 @@ the base url to use when resolving urls
 <td>
 
 the url kind to use when resolving urls
-
-</td>
-</tr>
-</tbody>
-</table>
-
-### MediaField
-
-<table>
-<thead>
-<tr>
-<th align="left">Field</th>
-<th align="right">Argument</th>
-<th align="left">Type</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td colspan="2" valign="top"><strong>paths</strong></td>
-<td valign="top">[<a href="#string">String</a>]</td>
-<td>
-
-the media paths
-
-</td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">first</td>
-<td valign="top"><a href="#int">Int</a></td>
-<td>
-
-the first n elements
-
-</td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">last</td>
-<td valign="top"><a href="#int">Int</a></td>
-<td>
-
-the last n elements
-
-</td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">skip</td>
-<td valign="top"><a href="#int">Int</a></td>
-<td>
-
-the number of elements to skip
-
-</td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong>urls</strong></td>
-<td valign="top">[<a href="#string">String</a>]</td>
-<td>
-
-the absolute urls of the media items
-
-</td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">first</td>
-<td valign="top"><a href="#int">Int</a></td>
-<td>
-
-the first n elements
-
-</td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">last</td>
-<td valign="top"><a href="#int">Int</a></td>
-<td>
-
-the last n elements
-
-</td>
-</tr>
-<tr>
-<td colspan="2" align="right" valign="top">skip</td>
-<td valign="top"><a href="#int">Int</a></td>
-<td>
-
-the number of elements to skip
 
 </td>
 </tr>
@@ -4687,10 +4433,10 @@ An organization that supports a thing through a pledge, promise, or financial co
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong>text</strong></td>
-<td valign="top"><a href="#markup">Markup</a></td>
+<td valign="top"><a href="#string">String</a></td>
 <td>
 
-The markup of the Creative Work and its flavour.
+The textual content of this CreativeWork.
 
 </td>
 </tr>
@@ -4709,6 +4455,15 @@ the base url to use when resolving urls
 <td>
 
 the url kind to use when resolving urls
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">format</td>
+<td valign="top"><a href="#markupformat">MarkupFormat</a></td>
+<td>
+
+the format of the markup used
 
 </td>
 </tr>
@@ -5386,10 +5141,10 @@ An organization that supports a thing through a pledge, promise, or financial co
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong>text</strong></td>
-<td valign="top"><a href="#markup">Markup</a></td>
+<td valign="top"><a href="#string">String</a></td>
 <td>
 
-The markup of the Creative Work and its flavour.
+The textual content of this CreativeWork.
 
 </td>
 </tr>
@@ -5408,6 +5163,15 @@ the base url to use when resolving urls
 <td>
 
 the url kind to use when resolving urls
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">format</td>
+<td valign="top"><a href="#markupformat">MarkupFormat</a></td>
+<td>
+
+the format of the markup used
 
 </td>
 </tr>
@@ -6378,10 +6142,10 @@ An organization that supports a thing through a pledge, promise, or financial co
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong>text</strong></td>
-<td valign="top"><a href="#markup">Markup</a></td>
+<td valign="top"><a href="#string">String</a></td>
 <td>
 
-The markup of the Creative Work and its flavour.
+The textual content of this CreativeWork.
 
 </td>
 </tr>
@@ -6400,6 +6164,15 @@ the base url to use when resolving urls
 <td>
 
 the url kind to use when resolving urls
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">format</td>
+<td valign="top"><a href="#markupformat">MarkupFormat</a></td>
+<td>
+
+the format of the markup used
 
 </td>
 </tr>
@@ -8443,10 +8216,10 @@ An organization that supports a thing through a pledge, promise, or financial co
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong>text</strong></td>
-<td valign="top"><a href="#markup">Markup</a></td>
+<td valign="top"><a href="#string">String</a></td>
 <td>
 
-The markup of the Creative Work and its flavour.
+The textual content of this CreativeWork.
 
 </td>
 </tr>
@@ -8465,6 +8238,15 @@ the base url to use when resolving urls
 <td>
 
 the url kind to use when resolving urls
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">format</td>
+<td valign="top"><a href="#markupformat">MarkupFormat</a></td>
+<td>
+
+the format of the markup used
 
 </td>
 </tr>
@@ -8978,10 +8760,10 @@ Indicates a dietary restriction or guideline for which this recipe or menu item 
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong>text</strong></td>
-<td valign="top"><a href="#markup">Markup</a></td>
+<td valign="top"><a href="#string">String</a></td>
 <td>
 
-The markup of the Creative Work and its flavour.
+The textual content of this CreativeWork.
 
 </td>
 </tr>
@@ -9000,6 +8782,15 @@ the base url to use when resolving urls
 <td>
 
 the url kind to use when resolving urls
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">format</td>
+<td valign="top"><a href="#markupformat">MarkupFormat</a></td>
+<td>
+
+the format of the markup used
 
 </td>
 </tr>
@@ -9159,6 +8950,347 @@ The search result.
 <td colspan="2" valign="top"><strong>totalResultCount</strong></td>
 <td valign="top"><a href="#int">Int</a>!</td>
 <td></td>
+</tr>
+</tbody>
+</table>
+
+### SectionPartQuery
+
+The most generic kind of creative work, including books, movies, photographs, software programs, etc.
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong>alternativeHeadline</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td>
+
+A secondary title of the CreativeWork.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audience</strong></td>
+<td valign="top"><a href="#audience">Audience</a></td>
+<td>
+
+An intended audience, i.e. a group for whom something was created.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>author</strong></td>
+<td valign="top">[<a href="#personororganization">PersonOrOrganization</a>]</td>
+<td>
+
+The author of this content.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>contributor</strong></td>
+<td valign="top">[<a href="#personororganization">PersonOrOrganization</a>]</td>
+<td>
+
+A secondary contributor to the CreativeWork.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>copyrightHolder</strong></td>
+<td valign="top"><a href="#personororganization">PersonOrOrganization</a></td>
+<td>
+
+The party holding the legal copyright to the CreativeWork.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>copyrightYear</strong></td>
+<td valign="top"><a href="#int">Int</a>!</td>
+<td>
+
+The year during which the claimed copyright for the CreativeWork was first asserted.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>creator</strong></td>
+<td valign="top"><a href="#personororganization">PersonOrOrganization</a></td>
+<td>
+
+The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>dateCreated</strong></td>
+<td valign="top"><a href="#date">Date</a></td>
+<td>
+
+The date on which the CreativeWork was created or the item was added to a DataFeed.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>dateModified</strong></td>
+<td valign="top"><a href="#date">Date</a></td>
+<td>
+
+The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>datePublished</strong></td>
+<td valign="top"><a href="#date">Date</a></td>
+<td>
+
+Date of first broadcast/publication.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>description</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+A description of the item.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>editor</strong></td>
+<td valign="top"><a href="#personquery">PersonQuery</a></td>
+<td>
+
+Specifies the Person who edited the CreativeWork.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>hasPart</strong></td>
+<td valign="top">[<a href="#creativework">CreativeWork</a>]</td>
+<td>
+
+Indicates an item or CreativeWork that is part of this item, or CreativeWork (in some sense).
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>headline</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td>
+
+Headline of the article.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifier</strong></td>
+<td valign="top">[<a href="#propertyvalue">PropertyValue</a>]</td>
+<td>
+
+The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>inLanguage</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td>
+
+The language of the content or performance or used in an action..
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>isFamilyFriendly</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a>!</td>
+<td>
+
+Indicates whether this content is family friendly.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>isPartOf</strong></td>
+<td valign="top">[<a href="#creativework">CreativeWork</a>]</td>
+<td>
+
+Indicates an item or CreativeWork that this item, or CreativeWork (in some sense), is part of.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>keywords</strong></td>
+<td valign="top">[<a href="#string">String</a>!]!</td>
+<td>
+
+Keywords or tags used to describe this content.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>nextReviewed</strong></td>
+<td valign="top"><a href="#date">Date</a></td>
+<td>
+
+The date on which the CreativeWork will next be reviewed.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>position</strong></td>
+<td valign="top"><a href="#int">Int</a>!</td>
+<td>
+
+The position of an item in a series or sequence of items.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>publishingPrinciples</strong></td>
+<td valign="top"><a href="#uri">Uri</a>!</td>
+<td>
+
+The publishingPrinciples property indicates a document describing the editorial principles of an Organization (or individual e.g. a Person writing a blog) that relate to their activities as a publisher, e.g. ethics or diversity policies.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>sameAs</strong></td>
+<td valign="top">[<a href="#uri">Uri</a>!]!</td>
+<td>
+
+URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>sponsor</strong></td>
+<td valign="top"><a href="#personororganization">PersonOrOrganization</a></td>
+<td>
+
+An organization that supports a thing through a pledge, promise, or financial contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>text</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The textual content of this CreativeWork.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">urlBase</td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+the base url to use when resolving urls
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">urlKind</td>
+<td valign="top"><a href="#urlkind">UrlKind</a></td>
+<td>
+
+the url kind to use when resolving urls
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">format</td>
+<td valign="top"><a href="#markupformat">MarkupFormat</a></td>
+<td>
+
+the format of the markup used
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>thumbnailUrl</strong></td>
+<td valign="top"><a href="#uri">Uri</a></td>
+<td>
+
+A thumbnail image relevant to the Thing.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>timeRequired</strong></td>
+<td valign="top"><a href="#seconds">Seconds</a></td>
+<td>
+
+Approximate or typical time it takes to work with or through this learning resource for the typical intended target audience.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>url</strong></td>
+<td valign="top"><a href="#uri">Uri</a></td>
+<td>
+
+URL of the item.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">urlBase</td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+the base url to use when resolving urls
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">urlKind</td>
+<td valign="top"><a href="#urlkind">UrlKind</a></td>
+<td>
+
+the url kind to use when resolving urls
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>version</strong></td>
+<td valign="top"><a href="#int">Int</a>!</td>
+<td>
+
+The version of the CreativeWork embodied by a specified resource.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>video</strong></td>
+<td valign="top"><a href="#hubvideo">HubVideo</a></td>
+<td>
+
+A Video describe the recording, reproducing, or broadcasting of moving visual images.
+
+</td>
 </tr>
 </tbody>
 </table>
@@ -9839,10 +9971,10 @@ An organization that supports a thing through a pledge, promise, or financial co
 </tr>
 <tr>
 <td colspan="2" valign="top"><strong>text</strong></td>
-<td valign="top"><a href="#markup">Markup</a></td>
+<td valign="top"><a href="#string">String</a></td>
 <td>
 
-The markup of the Creative Work and its flavour.
+The textual content of this CreativeWork.
 
 </td>
 </tr>
@@ -9861,6 +9993,15 @@ the base url to use when resolving urls
 <td>
 
 the url kind to use when resolving urls
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right" valign="top">format</td>
+<td valign="top"><a href="#markupformat">MarkupFormat</a></td>
+<td>
+
+the format of the markup used
 
 </td>
 </tr>
@@ -10886,11 +11027,434 @@ NOT logical operation
 </td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>webpage</strong></td>
-<td valign="top"><a href="#webpagepartinput">WebpagePartInput</a></td>
+<td colspan="2" valign="top"><strong>identifierName</strong></td>
+<td valign="top"><a href="#string">String</a></td>
 <td>
 
-A web page. Every web page is implicitly assumed to be declared to be of type WebPage, so the various properties about that webpage, such as breadcrumb may be used. We recommend explicit declaration if these properties are specified, but if they are found outside of an itemscope, they will be assumed to be about the page.
+The Name is equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_not</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name is not equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+The Name is in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_not_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+The Name is not in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name contains the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_not_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name does not contain the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name starts with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_not_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name does not start with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name ends with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_not_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name does not end with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description is equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_not</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description is not equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+The Description is in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_not_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+The Description is not in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description contains the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_not_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description does not contain the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description starts with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_not_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description does not start with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description ends with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_not_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description does not end with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. is equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_not</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. is not equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+The name of the item. is in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_not_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+The name of the item. is not in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. contains the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_not_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. does not contain the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. starts with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_not_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. does not start with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. ends with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_not_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. does not end with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_not</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is not equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_in</strong></td>
+<td valign="top">[<a href="#datetime">DateTime</a>]</td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_not_in</strong></td>
+<td valign="top">[<a href="#datetime">DateTime</a>]</td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is not in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_gt</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is greater than
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_gte</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is greater than or equal
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_lt</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is less than
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_lte</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is less than or equal
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. is equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_not</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. is not equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+Audience for which this web page is intended. is in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_not_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+Audience for which this web page is intended. is not in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. contains the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_not_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. does not contain the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. starts with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_not_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. does not start with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. ends with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_not_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. does not end with the string
 
 </td>
 </tr>
@@ -11561,58 +12125,6 @@ AND logical operation
 <td>
 
 NOT logical operation
-
-</td>
-</tr>
-</tbody>
-</table>
-
-### ContainedPartInput
-
-the list part of the content item
-
-<table>
-<thead>
-<tr>
-<th colspan="2" align="left">Field</th>
-<th align="left">Type</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td colspan="2" valign="top"><strong>listContentItemId</strong></td>
-<td valign="top"><a href="#id">ID</a></td>
-<td>
-
-the content item id of the parent list of the content item to filter is equal to
-
-</td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong>listContentItemId_not</strong></td>
-<td valign="top"><a href="#id">ID</a></td>
-<td>
-
-the content item id of the parent list of the content item to filter is not equal to
-
-</td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong>listContentItemId_in</strong></td>
-<td valign="top">[<a href="#id">ID</a>]</td>
-<td>
-
-the content item id of the parent list of the content item to filter is in collection
-
-</td>
-</tr>
-<tr>
-<td colspan="2" valign="top"><strong>listContentItemId_not_in</strong></td>
-<td valign="top">[<a href="#id">ID</a>]</td>
-<td>
-
-the content item id of the parent list of the content item to filter is not in collection
 
 </td>
 </tr>
@@ -12957,11 +13469,434 @@ NOT logical operation
 </td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>webpage</strong></td>
-<td valign="top"><a href="#webpagepartinput">WebpagePartInput</a></td>
+<td colspan="2" valign="top"><strong>identifierName</strong></td>
+<td valign="top"><a href="#string">String</a></td>
 <td>
 
-A web page. Every web page is implicitly assumed to be declared to be of type WebPage, so the various properties about that webpage, such as breadcrumb may be used. We recommend explicit declaration if these properties are specified, but if they are found outside of an itemscope, they will be assumed to be about the page.
+The Name is equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_not</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name is not equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+The Name is in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_not_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+The Name is not in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name contains the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_not_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name does not contain the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name starts with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_not_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name does not start with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name ends with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_not_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name does not end with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description is equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_not</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description is not equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+The Description is in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_not_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+The Description is not in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description contains the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_not_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description does not contain the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description starts with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_not_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description does not start with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description ends with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_not_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description does not end with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. is equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_not</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. is not equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+The name of the item. is in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_not_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+The name of the item. is not in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. contains the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_not_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. does not contain the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. starts with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_not_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. does not start with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. ends with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_not_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. does not end with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_not</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is not equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_in</strong></td>
+<td valign="top">[<a href="#datetime">DateTime</a>]</td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_not_in</strong></td>
+<td valign="top">[<a href="#datetime">DateTime</a>]</td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is not in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_gt</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is greater than
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_gte</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is greater than or equal
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_lt</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is less than
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_lte</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is less than or equal
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. is equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_not</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. is not equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+Audience for which this web page is intended. is in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_not_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+Audience for which this web page is intended. is not in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. contains the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_not_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. does not contain the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. starts with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_not_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. does not start with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. ends with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_not_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. does not end with the string
 
 </td>
 </tr>
@@ -13654,11 +14589,434 @@ Any condition of the human body that affects the normal functioning of a person,
 </td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>medicalWebpage</strong></td>
-<td valign="top"><a href="#medicalwebpagepartinput">MedicalWebpagePartInput</a></td>
+<td colspan="2" valign="top"><strong>identifierName</strong></td>
+<td valign="top"><a href="#string">String</a></td>
 <td>
 
-A web page that provides medical information.
+The Name is equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_not</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name is not equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+The Name is in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_not_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+The Name is not in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name contains the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_not_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name does not contain the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name starts with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_not_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name does not start with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name ends with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_not_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name does not end with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description is equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_not</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description is not equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+The Description is in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_not_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+The Description is not in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description contains the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_not_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description does not contain the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description starts with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_not_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description does not start with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description ends with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_not_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description does not end with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. is equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_not</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. is not equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+The name of the item. is in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_not_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+The name of the item. is not in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. contains the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_not_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. does not contain the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. starts with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_not_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. does not start with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. ends with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_not_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. does not end with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_not</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is not equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_in</strong></td>
+<td valign="top">[<a href="#datetime">DateTime</a>]</td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_not_in</strong></td>
+<td valign="top">[<a href="#datetime">DateTime</a>]</td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is not in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_gt</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is greater than
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_gte</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is greater than or equal
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_lt</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is less than
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_lte</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is less than or equal
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. is equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_not</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. is not equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+Audience for which this web page is intended. is in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_not_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+Audience for which this web page is intended. is not in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. contains the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_not_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. does not contain the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. starts with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_not_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. does not start with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. ends with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_not_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. does not end with the string
 
 </td>
 </tr>
@@ -14817,11 +16175,434 @@ Any condition of the human body that affects the normal functioning of a person,
 </td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>medicalWebpage</strong></td>
-<td valign="top"><a href="#medicalwebpagepartinput">MedicalWebpagePartInput</a></td>
+<td colspan="2" valign="top"><strong>identifierName</strong></td>
+<td valign="top"><a href="#string">String</a></td>
 <td>
 
-A web page that provides medical information.
+The Name is equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_not</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name is not equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+The Name is in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_not_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+The Name is not in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name contains the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_not_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name does not contain the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name starts with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_not_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name does not start with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name ends with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_not_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name does not end with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description is equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_not</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description is not equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+The Description is in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_not_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+The Description is not in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description contains the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_not_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description does not contain the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description starts with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_not_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description does not start with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description ends with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_not_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description does not end with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. is equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_not</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. is not equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+The name of the item. is in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_not_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+The name of the item. is not in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. contains the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_not_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. does not contain the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. starts with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_not_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. does not start with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. ends with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_not_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. does not end with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_not</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is not equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_in</strong></td>
+<td valign="top">[<a href="#datetime">DateTime</a>]</td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_not_in</strong></td>
+<td valign="top">[<a href="#datetime">DateTime</a>]</td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is not in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_gt</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is greater than
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_gte</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is greater than or equal
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_lt</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is less than
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_lte</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is less than or equal
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. is equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_not</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. is not equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+Audience for which this web page is intended. is in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_not_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+Audience for which this web page is intended. is not in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. contains the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_not_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. does not contain the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. starts with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_not_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. does not start with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. ends with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_not_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. does not end with the string
 
 </td>
 </tr>
@@ -17438,11 +19219,434 @@ NOT logical operation
 </td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><strong>webpage</strong></td>
-<td valign="top"><a href="#webpagepartinput">WebpagePartInput</a></td>
+<td colspan="2" valign="top"><strong>identifierName</strong></td>
+<td valign="top"><a href="#string">String</a></td>
 <td>
 
-A web page. Every web page is implicitly assumed to be declared to be of type WebPage, so the various properties about that webpage, such as breadcrumb may be used. We recommend explicit declaration if these properties are specified, but if they are found outside of an itemscope, they will be assumed to be about the page.
+The Name is equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_not</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name is not equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+The Name is in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_not_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+The Name is not in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name contains the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_not_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name does not contain the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name starts with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_not_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name does not start with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name ends with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierName_not_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Name does not end with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description is equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_not</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description is not equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+The Description is in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_not_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+The Description is not in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description contains the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_not_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description does not contain the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description starts with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_not_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description does not start with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description ends with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>identifierValue_not_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The Description does not end with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. is equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_not</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. is not equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+The name of the item. is in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_not_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+The name of the item. is not in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. contains the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_not_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. does not contain the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. starts with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_not_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. does not start with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. ends with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>name_not_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+The name of the item. does not end with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_not</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is not equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_in</strong></td>
+<td valign="top">[<a href="#datetime">DateTime</a>]</td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_not_in</strong></td>
+<td valign="top">[<a href="#datetime">DateTime</a>]</td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is not in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_gt</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is greater than
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_gte</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is greater than or equal
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_lt</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is less than
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>lastReviewed_lte</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td>
+
+Date on which the content on this web page was last reviewed for accuracy and/or completeness. is less than or equal
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. is equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_not</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. is not equal to
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+Audience for which this web page is intended. is in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_not_in</strong></td>
+<td valign="top">[<a href="#string">String</a>]</td>
+<td>
+
+Audience for which this web page is intended. is not in collection
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. contains the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_not_contains</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. does not contain the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. starts with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_not_starts_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. does not start with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. ends with the string
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>audienceType_not_ends_with</strong></td>
+<td valign="top"><a href="#string">String</a></td>
+<td>
+
+Audience for which this web page is intended. does not end with the string
 
 </td>
 </tr>
@@ -17939,6 +20143,33 @@ Audience for which this web page is intended. does not end with the string
 </tbody>
 </table>
 
+### MarkupFormat
+
+<table>
+<thead>
+<th align="left">Value</th>
+<th align="left">Description</th>
+</thead>
+<tbody>
+<tr>
+<td valign="top"><strong>html</strong></td>
+<td>
+
+Return text as html
+
+</td>
+</tr>
+<tr>
+<td valign="top"><strong>markdown</strong></td>
+<td>
+
+Returns text as markdown
+
+</td>
+</tr>
+</tbody>
+</table>
+
 ### OrderByDirection
 
 the order by direction
@@ -18144,3 +20375,47 @@ The `Seconds` scalar type represents a period of time represented as the total n
 ### String
 
 ### Uri
+
+
+## Interfaces
+
+
+### ContentItem
+
+<table>
+<thead>
+<tr>
+<th align="left">Field</th>
+<th align="right">Argument</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" valign="top"><strong>createdUtc</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>latest</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>modifiedUtc</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>published</strong></td>
+<td valign="top"><a href="#boolean">Boolean</a>!</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>publishedUtc</strong></td>
+<td valign="top"><a href="#datetime">DateTime</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>

@@ -64,6 +64,38 @@ Given our sample query the response with no errors would look like this
 }
 ```
 
+## Example Query
+
+An example query to get drug information would be as follows
+
+```
+{
+  medicalDrugArticle(first: 1) {
+  	drug {
+      name
+      dosageForm
+    }
+  }
+}
+```
+
+and the response 
+```
+{
+  "data": {
+    "medicalDrugArticle": [
+      {
+        "drug": {
+          "name": "Paracetomal",
+          "dosageForm": "TABLET"
+        }
+      }
+    ]
+  }
+}
+```
+
+
 ## PlayGround
 
 A sandbox enviorment for writing queries is available at [graphqlplayground](https://graphqlplayground.z33.web.core.windows.net/) - authenticate using your client credentials.

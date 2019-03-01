@@ -1,5 +1,5 @@
 site_name: Patient Platform
-nav :
+nav:
     - Home: index.md
     - Authentication: authentication/index.md
     - Query: 

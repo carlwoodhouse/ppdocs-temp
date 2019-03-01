@@ -4,7 +4,7 @@ Patient Platorm API's all use OpenId Connect/OAuth 2.0 protocals for authenticat
 
 ## Gaining Access
 
-Some instructions on getting credentials
+You'll need to contact PatientPlatform to gain api credentials.
 
 ## Authentication
 
@@ -14,5 +14,4 @@ Authenticate using client_credentials against https://pp-sso-alpha.azurewebsites
 
 Depending on which api you want to use depends on the scope required.
 
-* Directory - ppd:read
 * Query -  ppq:authenticated
